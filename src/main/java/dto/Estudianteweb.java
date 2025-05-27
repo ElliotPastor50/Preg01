@@ -30,7 +30,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Estudianteweb.findByNombEstdWeb", query = "SELECT e FROM Estudianteweb e WHERE e.nombEstdWeb = :nombEstdWeb"),
     @NamedQuery(name = "Estudianteweb.findByFechNaciEstdWeb", query = "SELECT e FROM Estudianteweb e WHERE e.fechNaciEstdWeb = :fechNaciEstdWeb"),
     @NamedQuery(name = "Estudianteweb.findByLogiEstd", query = "SELECT e FROM Estudianteweb e WHERE e.logiEstd = :logiEstd"),
-    @NamedQuery(name = "Estudianteweb.findByPassEstd", query = "SELECT e FROM Estudianteweb e WHERE e.passEstd = :passEstd")})
+    @NamedQuery(name = "Estudianteweb.findByPassEstd", query = "SELECT e FROM Estudianteweb e WHERE e.passEstd = :passEstd"),
+    @NamedQuery(name = "Estudianteweb.validar", query = "SELECT e FROM Estudianteweb e WHERE e.ndniEstdWeb = :ndniEstdWeb AND e.passEstd = :passEstd" )})
 public class Estudianteweb implements Serializable {
 
     private static final long serialVersionUID = 1L;
