@@ -12,19 +12,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author Naomi Alejandra Vega
- */
 public class EstudiantewebJpaController implements Serializable {
 
-    public EstudiantewebJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
-    private EntityManagerFactory emf = null;
+    private static final EntityManagerFactory emf
+            = Persistence.createEntityManagerFactory("com.mycompany_Preg1_war_1.0-SNAPSHOTPU");
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -133,5 +129,15 @@ public class EstudiantewebJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public Estudianteweb buscarPorDni(String dni) {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Estudianteweb> query = em.createNamedQuery("Estudianteweb.findByNdniEstdWeb", Estudianteweb.class);
+            query.setParameter("ndniEstdWeb", dni);
+            return query.getResultStream().findFirst().orElse(null);
+        } finally {
+            em.close();
+        }
+    }
 }
