@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Principal</title>
+    <!-- SB Admin 2 CSS desde CDN -->
+    <link href="https://cdn.jsdelivr.net/gh/StartBootstrap/startbootstrap-sb-admin-2/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-gray-800">Mantenimiento Estudiantes</h2>
+        <a href="cambiarContra.html" class="btn btn-warning mb-3">Cambiar Clave</a>
+
+        <form action="Estudiante" method="post">
+            <input type="hidden" name="accion" value="agregar">
+            <input type="text" name="ndni" placeholder="DNI" required class="form-control mb-2">
+            <input type="text" name="appa" placeholder="Apellido Paterno" required class="form-control mb-2">
+            <input type="text" name="apma" placeholder="Apellido Materno" required class="form-control mb-2">
+            <input type="text" name="nomb" placeholder="Nombres" required class="form-control mb-2">
+            <input type="date" name="fecha" required class="form-control mb-2">
+            <input type="text" name="login" placeholder="Login" required class="form-control mb-2">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+
+        <hr>
+        <h4 class="text-gray-700">Listado de Estudiantes</h4>
+        <div id="tablaEstudiantes"></div>
+    </div>
+</body>
 </html>
